@@ -2,11 +2,7 @@
 name: My First Workflow # An in-line comment
 on:
  push:
-   branches: # branches is an example of a list or sequence
-     - main
-     - feat/*
-     - fix/*
-     - chore/*
+   branches: [main, master]
  workflow_dispatch:
 
 jobs:
