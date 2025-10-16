@@ -1,4 +1,5 @@
-name: My First Workflow
+# a full-line comment in YAML
+name: My First Workflow # An in-line comment
 on:
  push:
    branches:
