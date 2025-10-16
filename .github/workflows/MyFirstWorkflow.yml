@@ -3,6 +3,7 @@ name: My First Workflow # An in-line comment
 on:
  push:
    branches: [main, master, pull_request, 'release/**']
+ paths: ['docs/**']
  workflow_dispatch:
 
 jobs:
