@@ -14,3 +14,5 @@ jobs:
           terraform_version: 1.7.5
         env:
           WhoToGreet: Prince
+      - name: Prints hello world!
+        uses: docker://hello-world:linux
