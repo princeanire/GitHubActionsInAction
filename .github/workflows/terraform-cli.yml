@@ -1,0 +1,12 @@
+name: Terraform CLI
+on:
+  workflow_dispatch:
+
+jobs:
+  setup_terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Terraform CLI
+        uses: hashicorp/setup-terraform@v3.1.2
+        with:
+          terraform_version: 1.7.5
