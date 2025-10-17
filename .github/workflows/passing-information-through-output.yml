@@ -28,3 +28,8 @@ jobs:
                ])
                .addLink('View staging deployment!', 'https://github.com')
                .write()
+      - name: print out the NAME variable
+        run: echo "my name is ${{ vars.NAME }}"
+      - name: print out PASSWORD variable
+        run: echo "my password is ${{ secrets.PASSWORD }}"
+        
