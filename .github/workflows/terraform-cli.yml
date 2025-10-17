@@ -33,6 +33,6 @@ jobs:
         run: echo "${{ github.sha }}"
   run_on_main:
     runs-on: ubuntu-latest
-    if: ${{ github.ref = 'refs/head/main' }}
+    if: ${{ github.ref == 'refs/head/main' }}
     steps:
       - run: echo "Deploying branch ${{ github.ref }}"
