@@ -36,3 +36,6 @@ jobs:
     if: ${{ github.ref == 'refs/head/main' }}
     steps:
       - run: echo "Deploying branch ${{ github.ref }}"
+      - name: Echo that the job faiiled
+        if: ${{ failure() }}
+        run: echo "The job failed"
