@@ -4,6 +4,8 @@ on:
 
 jobs:
   setup_terraform:
+    env:
+      TEST_ENV: true
     runs-on: ubuntu-latest
     steps:
       - name: Setup Terraform CLI
