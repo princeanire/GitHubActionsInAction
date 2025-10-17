@@ -1,6 +1,7 @@
 name: Terraform CLI
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   setup_terraform:
@@ -22,9 +23,11 @@ jobs:
       max-parallel: 3
       matrix:
         os_version: [ubuntu-latest, macos-latest]
-        node_version: [12, 14, 16]
+        node_version: [14, 16]
     runs-on: ${{ matrix.os_version }}
     steps:
       - uses: actions/setup-node@v3.6.0
         with:
           node-version: ${{ matrix.node_version }}
+      - name: Echo Git SHA that triggered the workflow
+        run: echo "${{ github.sha }}"
