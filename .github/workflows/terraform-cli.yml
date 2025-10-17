@@ -31,3 +31,8 @@ jobs:
           node-version: ${{ matrix.node_version }}
       - name: Echo Git SHA that triggered the workflow
         run: echo "${{ github.sha }}"
+  run_on_main:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref = 'refs/head/main' }}
+    steps:
+      - run: echo "Deploying branch ${{ github.ref }}"
