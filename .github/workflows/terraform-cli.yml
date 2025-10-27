@@ -1,6 +1,15 @@
 name: Terraform CLI
 on:
   workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenarion tags'
+  repository_dispatch:
+    types: [opened, deleted]
   push:
 
 jobs:
