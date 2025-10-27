@@ -33,5 +33,11 @@ jobs:
             echo "Prince Anire"
             echo "Jacob Smith"
             echo "Jackson"
+  build:
+    runs-on: ubuntu-latest-16core
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build project
+        run: make build
           
           
