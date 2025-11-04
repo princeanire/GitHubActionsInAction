@@ -34,5 +34,23 @@ jobs:
       - name: condition 2
         if: runner.os != 'Windows'
         run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
+  job_1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello World" > file.txt
+      - name: Upload File
+        uses: actions/upload-artifact@v2
+        with:
+          name: file
+          path: file.txt
+  job_2:
+    runs-on: ubuntu-latest
+    needs: job_1
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: file
+      - run: cat file.txt
+      
           
     
