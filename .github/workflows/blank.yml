@@ -2,6 +2,10 @@ name: Custom Dispatch Listener
 on:
   repository_dispatch:
     types: [run-tests, deploy-to-prod] # filtering to trigger the repository dispact I would have to send a POST request with PAT token
+  workflow_dispatch:
+
+env:
+  DAY_OF_WEEK: Wednesday
 
 jobs:
   run:
@@ -11,5 +15,15 @@ jobs:
         run: |
             echo "Event type: ${{ github.event.action }}"
             echo "Payload value: ${{ github.event.client_payload.env }}"
+  prod-check:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
+      - run: echo "Nice work, $FIRST_NAME. Deploying to production server on branch $GITHUB_REF"
+      
+        env:
+          FIRST_NAME: Prince
           
     
